@@ -4,4 +4,5 @@ Inspired by :
 
 - https://github.com/mathiasbynens/dotfiles
 - https://github.com/gf3/dotfiles
+- https://github.com/cowboy/dotfiles/
 - https://github.com/ryanb/dotfiles

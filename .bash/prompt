@@ -43,7 +43,29 @@ function parse_git_branch() {
 }
 
 function print_git_info() {
-    [[ -n $(git branch 2> /dev/null) ]] && echo "$RED[$(parse_git_branch)]"
+    [[ -n $(git branch 2> /dev/null) ]] && echo "[$(parse_git_branch)]"
+}
+
+# Git status.
+function prompt_git() {
+  # prompt_getcolors
+  local status output flags
+  status="$(git status 2>/dev/null)"
+  [[ $? != 0 ]] && return;
+  output="$(echo "$status" | awk '/# Initial commit/ {print "(init)"}')"
+  [[ "$output" ]] || output="$(echo "$status" | awk '/# On branch/ {print $4}')"
+  [[ "$output" ]] || output="$(git branch | perl -ne '/^\* (.*)/ && print $1')"
+  flags="$(
+    echo "$status" | awk 'BEGIN {r=""} \
+      /^# Changes to be committed:$/        {r=r "+"}\
+      /^# Changes not staged for commit:$/  {r=r "!"}\
+      /^# Untracked files:$/                {r=r "?"}\
+      END {print r}'
+  )"
+  if [[ "$flags" ]]; then
+    output="$output:$flags"
+  fi
+  echo "[$c0$output$c1]"
 }
 
 # function collapse_pwd() {
@@ -52,5 +74,10 @@ function print_git_info() {
 # ${PWD/#$HOME/~}
 
 # PS1
-export PS1="\[$BOLD\$(print_git_info)\[$CYAN\]\u\[$WHITE\]@\[$GREEN\]\h\[$WHITE\]:\[$YELLOW\]\w\[$WHITE\]$ \[$RESET\]"
+PS1="\[$BOLD$RED\$(prompt_git)"
+PS1="$PS1\[$RESET\]"
+PS1="$PS1\[$CYAN\]\u\[$WHITE\]@\[$GREEN\]\h"
+PS1="$PS1\[$WHITE\]:"
+PS1="$PS1\[$YELLOW\]\w"
+export PS1="$PS1\[$WHITE\]$ \[$RESET\]"
 # time: \[$MAGENTA\][\t]
