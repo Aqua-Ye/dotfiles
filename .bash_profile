@@ -8,7 +8,7 @@
 for file in ~/.bash/{prompt,complete}; do
     [ -r "$file" ] && source "$file"
 done
-for file in ~/.source/{exports,aliases,functions,extra}; do
+for file in ~/.source/{exports,aliases,functions,complete,extra}; do
     [ -r "$file" ] && source "$file"
 done
 unset file
