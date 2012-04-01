@@ -58,6 +58,9 @@ alias env='env | sort'
 # History
 alias hgrep="history | grep"
 
+# Find
+alias fn='find . -name'
+
 # Diff
 alias diff='diff -up'
 
