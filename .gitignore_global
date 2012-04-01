@@ -1,0 +1,44 @@
+.DS_Store
+
+# Thumbnails
+._*
+
+# Files that might appear on external disk
+.Spotlight-V100
+.Trashes
+
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+.elc
+auto-save-list
+tramp
+.\#*
+
+# SublimeText project files
+/*.sublime-project
+
+_build
+_tracks
+
+opa-debug-js
+
+*.opp
+*.opx
+*.opx.broken
+*.dump
+*.api
+*.api-txt
+*.exe
+*.log
+
+*.annot
+*.cmo
+*.cma
+*.cmi
+*.a
+*.o
+*.cmx
+*.cmxs
+*.cmxa

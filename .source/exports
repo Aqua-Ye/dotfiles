@@ -1,0 +1,40 @@
+### Exports ###
+
+# Editors
+export EMACS=/Applications/Emacs.app/Contents/MacOS/emacs
+export EDITOR=$EMACS
+export GIT_EDITOR=$EMACS
+
+# Java
+export PATH=/Library/Java/Home/bin:$PATH
+# Macports
+export PATH=/opt/local/bin:/opt/local/sbin:$PATH
+# Homebrew
+export PATH=/usr/local/bin:/usr/local/sbin:$PATH
+# MLstate
+export PATH=$MLSTATEROOT/bin:$MLSTATEROOT/sbin:$PATH
+export PATH=$MLSTATELIBS/bin:$PATH
+# Custom bin
+export PATH=$PATH:~/bin
+# Emacs
+export PATH=/Applications/Emacs.app/Contents/MacOS:$PATH
+
+# History
+
+# Larger bash history (allow 32³ entries; default is 500)
+export HISTSIZE=32768
+export HISTFILESIZE=$HISTSIZE
+export HISTCONTROL=ignoredups
+export HISTIGNORE="&:[ ]*:exit:history"
+# export HISTIGNORE="ls:ls -l:ls -al:exit:[bf]g"
+
+# Man
+export MANPATH=/opt/local/share/man:$MANPATH
+
+# Color
+export CLICOLOR=1
+export LSCOLORS=ExFxCxDxBxegedabagacad
+
+# Prefer US English and use UTF-8
+export LC_ALL="en_US.UTF-8"
+export LANG="en_US"
