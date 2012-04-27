@@ -131,6 +131,10 @@ function md() {
   mkdir -p "$@" && cd "$@"
 }
 
+function title() {
+  echo -e "\033];$1\007"
+}
+
 # Usage : seq n m [i]
 # echo all integers between n and m using a skip or increment of i
 # function seq ()
