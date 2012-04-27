@@ -74,7 +74,7 @@ function prompt_git() {
 # ${PWD/#$HOME/~}
 
 # PS1
-PS1="\[\033[G\]"
+PS1="\[\033[G\]" # http://jonisalonen.com/2012/your-bash-prompt-needs-this/
 PS1="\[$BOLD\]"
 PS1="$PS1\[$RED\]\$(prompt_git)"
 #PS1="$PS1\[$CYAN\]\u"
