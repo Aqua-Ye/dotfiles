@@ -22,6 +22,9 @@ alias ...="cd ../.."
 alias ....="cd ../../.."
 alias -- -='cd -'
 
+# Editors
+alias e="emacs"
+
 # Make
 alias remake="make clean; make"
 
