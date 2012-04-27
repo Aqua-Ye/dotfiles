@@ -47,7 +47,7 @@ alias bashconfig="emacs ~/.bashrc"
 alias ocaml="rlwrap ocaml"
 
 # SSH
-alias ssh="ssh -X"
+# alias ssh="ssh -X"
 
 # OSX
 alias lsrebuild="/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Versions/A/Support/lsregister -kill -r -domain local -domain system -domain use"
