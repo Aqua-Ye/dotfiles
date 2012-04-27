@@ -121,3 +121,7 @@ alias httpdump="sudo tcpdump -i en1 -n -s 0 -w - | grep -a -o -E \"Host\: .*|GET
 alias spotoff="sudo mdutil -a -i off"
 # Enable Spotlight
 alias spoton="sudo mdutil -a -i on"
+
+# Dyn Pager
+alias dynpageoff="sudo launchctl unload -w /System/Library/LaunchDaemons/com.apple.dynamic_pager.plist"
+alias dynpageon="sudo launchctl load -wF /System/Library/LaunchDaemons/com.apple.dynamic_pager.plist"
