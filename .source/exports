@@ -39,3 +39,6 @@ export LSCOLORS=ExFxCxDxBxegedabagacad
 export LC_ALL="en_US.UTF-8"
 export LANG="en_US"
 export LANGUAGE="en_US"
+
+# Python
+export PYTHONPATH=/usr/local/lib/python2.7/site-packages/
