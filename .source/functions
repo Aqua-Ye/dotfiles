@@ -160,6 +160,8 @@ function json() {
   fi
 }
 
+function mcd() { mkdir -p "${@}" && cd "${1}"; }
+
 # Usage : seq n m [i]
 # echo all integers between n and m using a skip or increment of i
 # function seq ()
