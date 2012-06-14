@@ -24,6 +24,7 @@ alias -- -='cd -'
 
 # Editors
 alias e="emacs"
+alias s="subl"
 
 # Make
 alias remake="make clean; make"
