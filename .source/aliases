@@ -126,3 +126,6 @@ alias spoton="sudo mdutil -a -i on"
 # Dyn Pager
 alias dynpageoff="sudo launchctl unload -w /System/Library/LaunchDaemons/com.apple.dynamic_pager.plist"
 alias dynpageon="sudo launchctl load -wF /System/Library/LaunchDaemons/com.apple.dynamic_pager.plist"
+
+# Show all listening TCP/UDP ports
+alias all_tcp_udp="lsof -Pan -i tcp -i udp"
