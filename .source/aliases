@@ -70,7 +70,7 @@ alias diff='diff -up'
 
 # Git
 alias g="git"
-alias gg="git grep"
+alias gg="git grep -E"
 
 # Grep
 alias grep='grep --color=auto'
