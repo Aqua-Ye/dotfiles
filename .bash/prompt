@@ -85,3 +85,6 @@ PS1="$PS1\[$RED\]\$(prompt_git)"
 PS1="$PS1\[$YELLOW\]\w"
 export PS1="$PS1\[$WHITE\]$ \[$RESET\]"
 # time: \[$MAGENTA\][\t]
+
+# PS2
+export PS2="\[$YELLOW\]→ \[$RESET\]"
