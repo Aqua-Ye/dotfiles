@@ -78,10 +78,12 @@ function prompt_git() {
 PS1="\[\033[G\]" # http://jonisalonen.com/2012/your-bash-prompt-needs-this/
 PS1="\[$BOLD\]"
 #PS1="$PS1\[$RED\]\$(prompt_git)"
-PS1="$PS1\[$CYAN\]\u"
-PS1="$PS1\[$WHITE\]@"
-PS1="$PS1\[$GREEN\]\h"
-PS1="$PS1\[$WHITE\]:"
+if [ -n "$SSH_CLIENT" ]; then
+   PS1="$PS1\[$CYAN\]\u"
+   PS1="$PS1\[$WHITE\]@"
+   PS1="$PS1\[$GREEN\]\h"
+   PS1="$PS1\[$WHITE\]:"
+fi
 PS1="$PS1\[$YELLOW\]\w"
 export PS1="$PS1\[$WHITE\]$ \[$RESET\]"
 # time: \[$MAGENTA\][\t]
