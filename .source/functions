@@ -131,9 +131,9 @@ function md() {
   mkdir -p "$@" && cd "$@"
 }
 
-function title() {
-  echo -e "\033];$1\007"
-}
+# function title() {
+#   echo -e "\033];$1\007"
+# }
 
 # Start an HTTP server from a directory, optionally specifying the port
 function server() {
