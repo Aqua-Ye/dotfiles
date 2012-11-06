@@ -23,7 +23,8 @@ alias ....="cd ../../.."
 alias -- -='cd -'
 
 # Editors
-alias e="emacs"
+# alias e="emacs"
+alias e='open -n -a /Applications/Emacs.app $@'
 alias s="subl"
 
 # Make
