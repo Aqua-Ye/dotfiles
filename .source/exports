@@ -17,7 +17,9 @@ export PATH=$MLSTATELIBS/bin:$PATH
 # Custom bin
 export PATH=$PATH:~/bin
 # Emacs
-export PATH=/Applications/Emacs.app/Contents/MacOS:/Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin:$PATH
+export PATH=/Applications/Emacs.app/Contents/MacOS:$PATH
+# Sublime
+export PATH=/Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin:$PATH
 
 # History
 
