@@ -131,5 +131,20 @@ alias dynpageon="sudo launchctl load -wF /System/Library/LaunchDaemons/com.apple
 # Show all listening TCP/UDP ports
 alias all_tcp_udp="lsof -Pan -i tcp -i udp"
 
+# Show active network listeners
+alias netlisteners='lsof -i -P | grep LISTEN'
+
 # Be polite
 alias please=sudo
+
+# Compact, colorized git log
+alias gl="git log --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
+
+# Show which commands you use the most
+alias freq='cut -f1 -d" " ~/.bash_history | sort | uniq -c | sort -nr | head -n 30'
+
+# Search for process, task manager
+alias tm='ps -ef | grep'
+
+# Show hidden files only
+alias l.='ls -d .* --color=auto'
