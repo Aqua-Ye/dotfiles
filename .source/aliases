@@ -30,6 +30,9 @@ alias s="subl"
 # Make
 alias remake="make clean; make"
 
+# Enable aliases to be sudo’ed
+alias sudo='sudo '
+
 # Encoding
 alias encode_aes="openssl enc -aes-256-cbc -a -salt "
 alias decode_aes="openssl enc -d -aes-256-cbc -a "
@@ -52,7 +55,8 @@ alias ocaml="rlwrap ocaml"
 # alias ssh="ssh -X"
 
 # OSX
-alias lsrebuild="/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Versions/A/Support/lsregister -kill -r -domain local -domain system -domain use"
+# Clean up LaunchServices to remove duplicates in the “Open With” menu
+alias lscleanup="/System/Library/Frameworks/CoreServices.framework/Frameworks/LaunchServices.framework/Support/lsregister -kill -r -domain local -domain system -domain user"
 alias fus="/System/Library/CoreServices/Menu\ Extras/User.menu/Contents/Resources/CGSession -suspend"
 alias chrome_timeline="/Applications/Google\ Chrome.app/Contents/MacOS/Google\ Chrome --enable-extension-timeline-api"
 
@@ -90,7 +94,7 @@ alias ds_cleanup="find . -type f -name '*.DS_Store' -ls -delete"
 # File size
 alias d="du -h -d=1"
 alias fs="stat -f \"%z bytes\""
-alias dsiz='du -sk * | sort -n --'
+alias dsiz='du -sk * | sort -n'
 alias df="df -h"
 
 # Hide/show all desktop icons (useful when presenting)
@@ -107,13 +111,13 @@ alias plistbuddy="/usr/libexec/PlistBuddy"
 # alias ip="curl -s http://checkip.dyndns.com/ | sed 's/[^0-9\.]//g'"
 alias ip="dig +short myip.opendns.com @resolver1.opendns.com"
 alias localip="ipconfig getifaddr en1"
-alias ips="ifconfig -a | perl -nle'/(\d+\.\d+\.\d+\.\d+)/ && print $1'"
+alias ips="ifconfig -a | grep -o 'inet6\? \(\([0-9]\+\.[0-9]\+\.[0-9]\+\.[0-9]\+\)\|[a-fA-F0-9:]\+\)' | sed -e 's/inet6* //'"
 
 # Enhanced WHOIS lookups
 alias whois="whois -h whois-servers.net"
 
 # Flush Directory Service cache
-alias flushdns="dscacheutil -flushcache"
+alias flush="dscacheutil -flushcache && killall -HUP mDNSResponder"
 
 # View HTTP traffic
 alias sniff="sudo ngrep -d 'en1' -t '^(GET|POST) ' 'tcp and port 80'"
@@ -148,3 +152,23 @@ alias tm='ps -ef | grep'
 
 # Show hidden files only
 alias l.='ls -d .* --color=auto'
+
+# Intuitive map function
+# For example, to list all directories that contain a certain file:
+# find . -name .gitattributes | map dirname
+alias map="xargs -n1"
+
+# Quarantine
+alias show_quarantine="sqlite3 ~/Library/Preferences/com.apple.LaunchServices.QuarantineEventsV* 'select LSQuarantineDataURLString from LSQuarantineEvent'"
+alias delete_quarantine="sqlite3 ~/Library/Preferences/com.apple.LaunchServices.QuarantineEventsV* 'delete from LSQuarantineEvent'"
+
+# Gzip-enabled `curl`
+alias gurl="curl --compressed"
+
+# Get OS X Software Updates, and update installed Ruby gems, Homebrew, npm, and their installed packages
+alias update='sudo softwareupdate -i -a; brew update; brew upgrade; brew cleanup; npm update npm -g; npm update -g; sudo gem update'
+
+# One of @janmoesen’s ProTip™s
+for method in GET HEAD POST PUT DELETE TRACE OPTIONS; do
+	alias "$method"="lwp-request -m '$method'"
+done
