@@ -3,7 +3,7 @@
 
 ## Source auxiliary bash files
 
-[ -r "$HOME/.mlstate" ] && source "$HOME/.mlstate"
+# [ -r "$HOME/.mlstate" ] && source "$HOME/.mlstate"
 
 for file in ~/.bash/{prompt,complete}; do
     [ -r "$file" ] && source "$file"
