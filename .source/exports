@@ -20,6 +20,8 @@ export PATH=$PATH:~/bin
 export PATH=/Applications/Emacs.app/Contents/MacOS:$PATH
 # Sublime
 export PATH=/Applications/Sublime\ Text\ 2.app/Contents/SharedSupport/bin:$PATH
+# Android Studio
+export PATH=/Applications/Android\ Studio.app/sdk/platform-tools:$PATH
 
 export PATH=$PATH:/Applications/adt-bundle-mac-x86_64/sdk/tools:/Applications/adt-bundle-mac-x86_64/sdk/platform-tools
 
